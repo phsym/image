@@ -195,9 +195,6 @@ func (ref ociReference) getManifestDescriptor() (imgspecv1.Descriptor, error) {
 	} else {
 		// if image specified, look through all manifests for a match
 		for _, md := range index.Manifests {
-			if md.MediaType != imgspecv1.MediaTypeImageManifest && md.MediaType != imgspecv1.MediaTypeImageIndex {
-				continue
-			}
 			refName, ok := md.Annotations[imgspecv1.AnnotationRefName]
 			if !ok {
 				continue
